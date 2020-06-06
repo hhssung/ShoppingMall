@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>대공구</title>
+
+
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/shop-homepage.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-image: url('/img/Gray-Background.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    .main-feature {
+      background-color: white;
+    }
+
+    .title {
+      color: white;
+      background-color: #555555;
+      font-weight: bold;
+    }
+
+    .bulletin {
+      width: 100%;
+    }
+
+    .search {
+      border: 1px solid gray;
+      height: 40px;
+      width: 400px;
+      padding: 5px;
+      margin: 10px;
+      background-color: #ffffff;
+    }
+
+    .sch_smit {
+      width: 50px;
+      height: 100%;
+      border: 0px;
+      background: gray;
+      outline: none;
+      float: right;
+      color: #ffffff;
+    }
+
+    .top-margin {
+      margin-top: 30px;
+    }
+
+    input {
+      vertical-align: middle;
+    }
+
+    input.form-text {
+      border: 1px solid #bcbcbc;
+      height: 28px;
+    }
+
+    input.img-button {
+      background: url("images/button_search.png") no-repeat;
+      border: none;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+
+    .nav-item .nav-link {
+      background-color: transparent;
+      border: 0px transparent solid;
+    }
+
+    .row {
+      margin-top: 30px;
+    }
+
+    .navbar-brand img {
+      border: 5px solid gray;
+      width: 100px;
+    }
+
+    .h-100 {
+      transition: 0.3s;
+    }
+
+    .card-title {
+      font-weight: bold;
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $(".ontop-0").mouseover(function() {
+        $(".hoverchange-0").css("background-color", "gray");
+      });
+      $(".ontop-0").mouseout(function() {
+        $(".hoverchange-0").css("background-color", "white");
+      });
+    });
+
+    $(function() {
+      $(".ontop-1").mouseover(function() {
+        $(".hoverchange-1").css("background-color", "gray");
+      });
+      $(".ontop-1").mouseout(function() {
+        $(".hoverchange-1").css("background-color", "white");
+      });
+    });
+
+    $(function() {
+      $(".ontop-2").mouseover(function() {
+        $(".hoverchange-2").css("background-color", "gray");
+      });
+      $(".ontop-2").mouseout(function() {
+        $(".hoverchange-2").css("background-color", "white");
+      });
+    });
+
+    $(function() {
+      $(".ontop-3").mouseover(function() {
+        $(".hoverchange-3").css("background-color", "gray");
+      });
+      $(".ontop-3").mouseout(function() {
+        $(".hoverchange-3").css("background-color", "white");
+      });
+    });
+
+    $(function() {
+      $(".ontop-4").mouseover(function() {
+        $(".hoverchange-4").css("background-color", "gray");
+      });
+      $(".ontop-4").mouseout(function() {
+        $(".hoverchange-4").css("background-color", "white");
+      });
+    });
+
+    $(function() {
+      $(".ontop-5").mouseover(function() {
+        $(".hoverchange-5").css("background-color", "gray");
+      });
+      $(".ontop-5").mouseout(function() {
+        $(".hoverchange-5").css("background-color", "white");
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <%
+    if(pass == 1)
+    { %>
+  <script type="text/javascript">
+    <!-- 구매 완료 시
+    -->
+    alert('구매가
+    완료되었습니다.
+    ');
+  </script>
+  <%
+  }%>
+  <!-- 위의 메뉴판 부분 -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <div class="navbar-brand"> <img src="/img/logofile.png" alt=""> </div>
+      <!-- 학교 이름 삽입 -->
+      <div class="univ_name" style="color: white"><%= Univname %> </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <!-- 이미 home page라서 변경사항 x -->
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <!-- 마이 페이지 -->
+            <form action="/customer/consumer_page/" method="post">
+              <input class="nav-link" type="submit" value="My Page">
+            </form>
+          </li>
+          <li class="nav-item">
+            <!-- 로그 아웃 -->
+            <form action="/customer/logout/logout" method="post">
+              <input class="nav-link" type="submit" value="Log out">
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </nav>
+  <!-- Page Content -->
+  <div class="container ">
+    <div class="row main-feature">
+      <div class="col-lg-12">
+        <!-- 상품 검색 -->
+        <div class="navbar-search top-margin">
+          <h4 class="navbar title">상품명 검색</h4>
+          <center>
+            <!-- 검색 form -->
+            <form class="" action="/customer/search/" method="post">
+              <div class="input-group md-form form-sm form-2 pl-0">
+                <input class="form-control my-0 py-1 red-border" name="search" type="text" placeholder="검색" aria-label="Search">
+                <div class="input-group-append">
+                  <!-- 검색하기 -->
+                  <button type="submit" name="search_button" class="btn btn-secondary" onclick="location.href='/customer/search/'">
+                    <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M12.442 12.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"></path>
+                      <path fill-rule="evenodd" d="M8.5 14a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM15 8.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </center>
+        </div>
+        <hr>
+
+        <!-- 상품 목록 -->
+        <h4 class="navbar title">추천 상품</h4>
+        <div class="row">
+
+          <% for(var i = 0; i < Length; i++){ %>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 hoverchange-<%=i %>">
+
+              <form action="/customer/product/" method="post">
+                <input type="image" class="card-img-top ontop-<%=i %>" src=" <%= Itemurl[i] %> " name="Submit" alt="">
+                <input type="hidden" name="ItemID" value="<%= itemid[i] %>"> <!-- 상품의 itemid -->
+              </form>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <%= Itemname[i] %>
+                </h4>
+                <hr>
+                <h5><%= Itemprice[i] %>￦</h5>
+                <p class="card-text"><%= Description[i] %></p>
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </div>
+
+
+        <!-- /.col-lg-9 -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

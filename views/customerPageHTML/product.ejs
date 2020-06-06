@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/shop-homepage.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('/img/Gray-background.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    .nav-item .nav-link {
+      background-color: transparent;
+      border: 0px transparent solid;
+    }
+    .main-feature {
+      border: 3px outset;
+      background-color: #333333;
+      margin-bottom: 30px;
+    }
+    .title {
+      color: white;
+      background-color: #555555;
+      font-weight: bold;
+    }
+
+    .navbar-brand img {
+      border: 5px solid gray;
+      width: 100px;
+    }
+
+    .img_description {
+      margin: 10px;
+    }
+
+    .black {
+      font-weight: bold;
+      color: white;
+      background-color: #444444;
+      width: 40%;
+    }
+
+    table {
+      background-color: white;
+    }
+
+    .description {
+      border: 3px outset white;
+      background-color: white;
+      margin: 10px;
+    }
+
+
+    .text-page {
+      margin: 10px;
+      height: 150px;
+    }
+
+    .bottom_gap {
+      margin-bottom: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <div class="navbar-brand"><img src="/img/logofile.png" onclick="location.href='/customer/mainPage/'" alt=""></div>
+      <!-- 학교 이름 삽입 -->
+      <div class="univ_name" style="color: white"> <%= Univname %> </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <!-- 구매자 초기 화면으로 -->
+            <form action="/customer/mainPage/" method="get">
+              <input class="nav-link" type="submit" value="Home">
+            </form>
+          </li>
+          <li class="nav-item">
+            <!-- 마이 페이지 -->
+            <form action="/customer/consumer_page/" method="post">
+              <input class="nav-link" type="submit" value="My Page">
+            </form>
+          </li>
+          <li class="nav-item">
+            <!-- 로그 아웃 -->
+            <form action="/customer/logout/logout" method="post">
+              <input class="nav-link" type="submit" value="Log out">
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--Main layout-->
+  <main class="pt-4">
+    <div class="container dark-grey-text mt-5 main-feature">
+      <h1 class="navbar title">상세 설명</h1>
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+          <div class="img_description">
+            <center>
+              <img src="<%= imgsrc %>" class="img-fluid" alt="">
+            </center>
+          </div>
+          <div class="description">
+            <p class="navbar lead font-weight-bold title">설명</p>
+            <p class="text-page"><%=  description %></p>
+          </div>
+        </div>
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+          <!--Content-->
+          <div class="p-2">
+            <table class="table table-bordered">
+              <tr>
+                <th class="black">상품 이름</th>
+                <th><%= itemname %></th>
+              </tr>
+              <tr>
+                <th class="black">판매자 이름</th>
+                <th><%=  sellername %></th>
+              </tr>
+              <tr>
+                <th class="black">처음 가격</th>
+                <th><%=  cur_price %> ￦</th>
+              </tr>
+              <tr>
+                <th class="black">남은 개수</th>
+                <th><%= is_available %>개 남았습니다</th>
+              </tr>
+              <tr>
+                <th class="black">현재 할인율</th>
+                <th><%=  discount %> %</th>
+              </tr>
+              <tr>
+                <th class="black">현재 가격</th>
+                <th><%=  nowprice %> ￦</th>
+              </tr>
+              <tr>
+                <th class="black">다음 할인율/목표 달성까지 남은 개수</th>
+                <th><%= nextdisgoal  %></th>
+              </tr>
+              <tr>
+                <th class="black">남은 시간</th>
+                <th><%=  itemdate %></th>
+              </tr>
+            </table>
+
+
+          </div>
+          <!--Content-->
+        </div>
+        <!--Grid column-->
+      </div>
+      <center>
+        <form action="/customer/buy/" method="post">
+          <!-- 다음 page로 보내 줄 정보들-->
+          <input type="hidden" name="ItemID" value="<%= itemid %>"> <!-- 상품의 itemid -->
+          <input type="hidden" name="discount" value="<%= discount %>"> <!-- 상품의 현재 할인율 -->
+          <input type="hidden" name="nowprice" value="<%= nowprice %>"> <!-- 상품 가격 -->
+          <button class="btn btn-secondary btn-lg bottom_gap" type="submit">공동 구매</button>
+        </form>
+      </center>
+      <!--Grid row-->
+    </div>
+
+  </main>
+  <!--Main layout-->
+
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white ">Copyright &copy; Your Website 2019</p>
+
+    </div>
+    <!-- /.container -->
+  </footer>
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
