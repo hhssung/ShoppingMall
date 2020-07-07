@@ -6,6 +6,8 @@ var logger = require('morgan');
 
 //router 정의하기
 //main page router
+
+
 var startRouter = require('./routes/start');
 //customer page router
 var c_buyRouter = require('./routes/customerPage/buy');
